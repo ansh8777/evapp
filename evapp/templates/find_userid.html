@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>아이디 찾기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px; /* 더 둥글게 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h2 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 14px;
+            color: #666666;
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+        input[type="email"] {
+            width: calc(100% - 20px); /* 좌우 여백 맞춤 */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #dddddd;
+            border-radius: 8px; /* 둥글게 조정 */
+            font-size: 14px;
+        }
+        button {
+            background-color: #b0b0b0; /* 회색으로 변경 */
+            color: #ffffff;
+            border: none;
+            border-radius: 20px; /* 더 둥글게 조정 */
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #9a9a9a; /* 조금 어두운 회색으로 변경 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>아이디 찾기</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="email">등록된 이메일 주소:</label>
+            <input type="email" name="email" placeholder="이메일을 입력하세요" required>
+            <button type="submit">아이디 찾기</button>
+        </form>
+    </div>
+</body>
+</html>

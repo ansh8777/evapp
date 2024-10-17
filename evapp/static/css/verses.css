@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------------- */
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 테이블 스타일 */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed; /* 모든 열의 고정 너비를 설정 */
+}
+
+.comparison-table th, .comparison-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    width: 33.33%; /* 각 열의 너비를 동일하게 설정 */
+}
+
+/* 칼럼(맨 왼쪽 열) */
+.comparison-table td:first-child,
+.comparison-table th:first-child {
+    width: 10%; /* 왼쪽 칼럼 너비를 줄임 */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #b0b0b0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #9a9a9a;
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 60px;
+}
+
+.modal-div {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* 검색 결과 위치 조정을 위해 상대 위치 지정 */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+select, input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+button#left-confirm, button#right-confirm {
+    width: 100%;
+    margin-top: 20px;
+    font-weight: bold;
+    background-color: #b0b0b0;
+}
+
+button#left-confirm:hover, button#right-confirm:hover {
+    background-color: #9a9a9a;
+}
+
+.hidden {
+    display: none;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* ------------------- 실시간 검색 기능을 위한 추가 스타일 ------------------- */
+
+/* 검색 결과 컨테이너 스타일 */
+.search-results {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    position: absolute;
+    top: 0; /* 검색 입력란의 상단에 맞춤 */
+    left: 100%; /* 검색 입력란의 오른쪽에 위치 */
+    width: 400px; /* 검색 결과 창의 너비 설정 */
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+/* 검색 결과 항목 스타일 */
+.search-result-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* 검색 입력란 스타일 */
+#left-search,
+#right-search {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search-results p {
+    padding: 10px;
+    margin: 0;
+    color: #666;
+}
+
+/* -------------------------------------------------------------------------- */
+.search-result-image {
+    width: auto; /* 기존 50px에서 30px로 축소 */
+    height: 50px; /* 기존 50px에서 30px로 축소 */
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 8px; /* 패딩을 약간 줄임 */
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.search-result-item span {
+    font-size: 14px; /* 텍스트 크기 조정 */
+}
